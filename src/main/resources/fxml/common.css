@@ -1,0 +1,11 @@
+.label {
+  -fx-font-size: 20pt;
+}
+
+.button {
+  -fx-font-size: 15pt;
+}
+
+.text-field {
+  -fx-font-size: 12pt;
+}
