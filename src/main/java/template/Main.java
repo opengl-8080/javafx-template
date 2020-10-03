@@ -1,9 +1,9 @@
 package template;
 
+import gl.javafx.FxWindow;
+import gl.javafx.Fxml;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -12,11 +12,10 @@ public class Main extends Application {
     }
     
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        final Parent parent = FXMLLoader.load(Main.class.getResource("/fxml/main.fxml"));
-        final Scene scene = new Scene(parent);
-        primaryStage.setTitle("Template");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public void start(Stage primaryStage) {
+        final Fxml<?, Parent> fxml = Fxml.load("/fxml/main.fxml");
+        FxWindow.newWindow(fxml)
+                .title("Template")
+                .show();
     }
 }
