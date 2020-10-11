@@ -18,7 +18,7 @@
                   <ValidationTextField fx:id="textField" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#onClickButton" prefWidth="130.0" text="ボタン" />
+            <Button mnemonicParsing="false" onAction="#onClickButton" prefWidth="130.0" text="ボタン" fx:id="button" />
          </children>
       </VBox>
    </center>

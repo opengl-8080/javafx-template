@@ -6,6 +6,7 @@ import gl.javafx.control.ValidationTextField;
 import gl.javafx.control.Validator;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +16,8 @@ import java.util.regex.Pattern;
 public class MainController implements Initializable {
     @FXML
     private ValidationTextField textField;
+    @FXML
+    private Button button;
     
     @FXML
     public void onClickButton() {
@@ -25,6 +28,9 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // 半角英字のみ可
-        textField.addValidator(Validator.patternOf(Pattern.compile("^[a-zA-Z]*$")));
+        textField.addValidator(Validator.patternOf(Pattern.compile("^[a-zA-Z]+$")));
+        
+        // テキストの有効状態とボタンの押下可否を連動させる
+        button.disableProperty().bind(textField.validProperty().not());
     }
 }
