@@ -1,17 +1,30 @@
 package template.controller;
 
+import gl.javafx.FxmlPath;
+import gl.javafx.control.Dialog;
+import gl.javafx.control.ValidationTextField;
+import gl.javafx.control.Validator;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
 
-public class MainController {
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.regex.Pattern;
+
+@FxmlPath("/fxml/main.fxml")
+public class MainController implements Initializable {
     @FXML
-    private TextField textField;
+    private ValidationTextField textField;
     
     @FXML
     public void onClickButton() {
         final String text = textField.getText();
-        final Alert alert = new Alert(Alert.AlertType.INFORMATION, text);
-        alert.showAndWait();
+        Dialog.confirm("text=" + text);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // 半角英字のみ可
+        textField.addValidator(Validator.patternOf(Pattern.compile("^[a-zA-Z]*$")));
     }
 }
