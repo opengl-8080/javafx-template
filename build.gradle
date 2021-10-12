@@ -1,18 +1,18 @@
 plugins {
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.8'
-    id 'org.beryx.jlink' version '2.12.0'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'org.beryx.jlink' version '2.24.2'
 }
 
 javafx {
-    version = "11"
+    version = "17"
     modules = [ 'javafx.fxml', 'javafx.controls' ]
 }
 
 mainClassName = 'template.Main'
 
-sourceCompatibility = 11
-targetCompatibility = 11
+sourceCompatibility = 17
+targetCompatibility = 17
 
 
 [compileJava, compileTestJava]*.options*.encoding = "UTF-8"
@@ -24,8 +24,8 @@ repositories {
 
 dependencies {
     implementation "gl:gl-javafx:1.0.0"
-    testImplementation "org.junit.jupiter:junit-jupiter:5.7.0"
-    testImplementation "org.assertj:assertj-core:3.17.2"
+    testImplementation "org.junit.jupiter:junit-jupiter:5.8.1"
+    testImplementation "org.assertj:assertj-core:3.21.0"
 }
 
 test {
